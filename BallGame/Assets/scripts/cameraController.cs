@@ -19,7 +19,7 @@ public class cameraController : MonoBehaviour {
         if (player.transform.position.y < -10)
         {
             player.transform.position =new Vector3(0,5,0);
-
+            //add rebound
             //transform.position = startPosition;
             
         }
