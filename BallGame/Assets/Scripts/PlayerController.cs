@@ -2,6 +2,8 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,7 +27,7 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal,Math.Abs(moveHorizontal + moveVertical * 2), moveVertical);
+        Vector3 movement = new Vector3(moveHorizontal,Math.Abs(Math.Abs(moveHorizontal) + Math.Abs(moveVertical) * 2), moveVertical);
 
         rb.AddForce(movement * speed);
     }
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         countText.text = "Count: " + count.ToString();
         if (count == 7)
-            winText.text = "You Win FGT";
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 }
